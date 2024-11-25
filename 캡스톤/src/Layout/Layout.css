@@ -1,5 +1,5 @@
 .layout-background {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('./background.jpg');
+    background-color: aliceblue;
     background-size: cover;
     background-position: center;
     width: 100vw;

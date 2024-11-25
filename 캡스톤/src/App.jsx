@@ -6,8 +6,8 @@ import Login from './Login/Login';
 import Signup from './Signup/Signup';
 import Editprofile from './Editprofile/Editprofile';
 import Main from './Main/Main';
-import TimetableList from './Timetablelist/Timetablelist.';
-import TimetableView from './Timetableview/Timetableview';
+import TimetableDataSet from './Timetable/TimetableDataSet';
+import TimetableCheck from './Timetable/TimetableCheck';
 
 function App() {
   return (
@@ -18,8 +18,8 @@ function App() {
       <Route path="/faq" element={<Faq />} />
       <Route path="/editprofile" element={<Editprofile/>} />
       <Route path="/main" element={<Main/>} />
-      <Route path="/Timetablelist" element={<TimetableList/>} />
-      <Route path="/Timetableview" element={<TimetableView/>} />
+      <Route path="/timetable" element={<TimetableDataSet />} />
+      <Route path="/timetablecheck" element={<TimetableCheck />} />
       
     </Routes>
   );

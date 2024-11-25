@@ -2,8 +2,6 @@ import React from 'react';
 import './timetableview.css'; // CSS 스타일
 import Layout from "../Layout/Layout"; // 레이아웃
 import { useLocation, useNavigate } from 'react-router-dom';
-import { jsPDF } from "jspdf";
-import html2canvas from "html2canvas";
 
 const TimetableView = () => {
   const location = useLocation(); // 현재 위치 정보
@@ -18,26 +16,12 @@ const TimetableView = () => {
     navigate('/timetablelist'); // 'timetablelist' 페이지로 이동
   };
 
-
-  const handlePDFSave = async () => {
-    const element = document.querySelector(".timetableview-content");
-    const canvas = await html2canvas(element);
-    const imgData = canvas.toDataURL("image/png");
-
-    const pdf = new jsPDF("p", "mm", "a4");
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-    pdf.save("timetable.pdf");
-  };
-
   return (
-    <Layout>
       <div className="timetableview-container">
         <div className="timetableview-header">
           <button className="timetableview-close-btn" onClick={handleClose}>×</button> {/* 닫기 버튼 */}
           <div className="timetableview-title">선택한 시간표</div> {/* 페이지 제목 */}
-          <button className="timetableview-pdf-save-btn" onClick={handlePDFSave}>PDF로 저장</button> {/* PDF 저장 버튼 */}
+          <button className="timetableview-pdf-save-btn">PDF로 저장</button> {/* PDF 저장 버튼 */}
         </div>
         
         <div className="timetableview-content">
@@ -68,7 +52,6 @@ const TimetableView = () => {
           </div>
         </div>
       </div>
-    </Layout>
   );
 };
 
